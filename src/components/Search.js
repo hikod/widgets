@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const Search = () => {
   const [term, setTerm] = useState("react");
   const [results, setResults] = useState([]);
+
   useEffect(() => {
     const search = async () => {
       const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
