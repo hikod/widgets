@@ -28,52 +28,25 @@ const App = () => {
     },
   ];
 
-  const showAccordion = () => {
-    if (window.location.pathname === "/") {
-      return <Accordion items={items} />;
-    }
-  };
-  const showList = () => {
-    if (window.location.pathname === "/list") {
-      return <Search />;
-    }
-  };
-  const showDropDown = () => {
-    if (window.location.pathname === "/dropdown") {
-      return (
-        <Dropdown
-          selected={selected}
-          onSelectedChange={setSelected}
-          options={options}
-        />
-      );
-    }
-  };
-  const showTranslate = () => {
-    if (window.location.pathname === "/translate") {
-      return <Translate />;
-    }
-  };
-
   return (
     <div className="ui container">
-      {/* <Accordion items={items} /> */}
-      {/* <Search /> */}
-      {/* <button onClick={() => setShowDropdown(!showDropdown)}>
-        Toogle dropdown
-      </button>
-      {showDropdown ? (
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/list">
+        <Search />
+      </Route>
+      <Route path="/dropdown">
         <Dropdown
+          label="Select a color"
+          options={options}
           selected={selected}
           onSelectedChange={setSelected}
-          options={options}
         />
-      ) : null} */}
-      {/* <Translate /> */}
-      {showAccordion()}
-      {showDropDown()}
-      {showTranslate()}
-      {showList()}
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
   );
 };
