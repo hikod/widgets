@@ -4,6 +4,7 @@ import Search from "./Search";
 import Dropdown from "./Dropdown";
 import Translate from "./Translate";
 import Route from "./Route";
+import Header from "./Header";
 
 const App = () => {
   const options = [
@@ -30,6 +31,7 @@ const App = () => {
 
   return (
     <div className="ui container">
+      <Header />
       <Route path="/">
         <Accordion items={items} />
       </Route>
