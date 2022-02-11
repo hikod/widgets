@@ -3,6 +3,7 @@ import Accordion from "./Accordion";
 import Search from "./Search";
 import Dropdown from "./Dropdown";
 import Translate from "./Translate";
+import Route from "./Route";
 
 const App = () => {
   const options = [
@@ -29,19 +30,23 @@ const App = () => {
 
   return (
     <div className="ui container">
-      {/* <Accordion items={items} /> */}
-      {/* <Search /> */}
-      {/* <button onClick={() => setShowDropdown(!showDropdown)}>
-        Toogle dropdown
-      </button>
-      {showDropdown ? (
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/list">
+        <Search />
+      </Route>
+      <Route path="/dropdown">
         <Dropdown
+          label="Select a color"
+          options={options}
           selected={selected}
           onSelectedChange={setSelected}
-          options={options}
         />
-      ) : null} */}
-      <Translate />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
   );
 };
